@@ -6,6 +6,8 @@ public class Main
 	    Sample.countDown01(5);
 	    Sample.countDown02(5);
 	    System.out.println(Sample.fibonacci(7));
+	    System.out.println(Sample.sum(10));
+	    System.out.println(Sample.sum(5, 10));
 	}
 }
 
@@ -50,17 +52,24 @@ class Sample {
         return (n <= 1) ? n : (fibonacci(n - 1) + fibonacci(n - 2));
     }
     
-    public static void qickSort(int [] arr, int low, int high)
-    {
-        if (low < high) {
-            int pivotIndex = partition(arr, low, high);
-
-          quickSort(arr, low, pivotIndex - 1);
-          quickSort(arr, pivotIndex + 1, high);
-      }
+    // public static void qickSort(int [] arr, int low, int high)
+    // {
+    //     if (low < high) {
+    //         int pivotIndex = partition(arr, low, high);
+    
+    //         quickSort(arr, low, pivotIndex - 1);
+    //         quickSort(arr, pivotIndex + 1, high);
+    //     }
+    // }
+    
+    public static int sum(int k) {
+        return (k > 0) ? (k + sum(k - 1)) : 0;
     }
     
-    
+    public static int sum(int start, int end)
+    {
+        return (end > start) ? (end + sum(start, end - 1)) : end;
+    }
     
     
     
